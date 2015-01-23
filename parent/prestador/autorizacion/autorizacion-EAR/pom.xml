@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>co.com.businessoft</groupId>
+    <artifactId>autorizacion</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  <artifactId>autorizacion-EAR</artifactId>
+  <packaging>ear</packaging>
+  
+  <dependencies>
+		<dependency>
+			<groupId>co.com.businessoft</groupId>
+			<artifactId>autorizacion-WAR</artifactId>
+			<version>1.0.0</version>
+			<type>war</type>
+		</dependency>
+		<!--War Dependencies-->
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>${primefaces-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jasig.cas.client</groupId>
+            <artifactId>cas-client-core</artifactId>
+            <version>${jasig.cas.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ocpsoft.rewrite</groupId>
+            <artifactId>rewrite-servlet</artifactId>
+            <version>${prettyfaces.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ocpsoft.rewrite</groupId>
+            <artifactId>rewrite-config-prettyfaces</artifactId>
+            <version>${prettyfaces.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${commons_fileupload.version}</version>
+        </dependency>
+  </dependencies>
+  
+<build>
+        <finalName>autorizacion</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.8</version>
+                <configuration>
+                    <version>6</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <!--<skinnyWars>true</skinnyWars>-->
+
+                    <modules>
+                        <webModule>
+                            <groupId>co.com.businessoft</groupId>
+                            <artifactId>autorizacion-WAR</artifactId>
+                            <contextRoot>/businessoft/autorizacion</contextRoot>
+                        </webModule>                        
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>  
+</project>

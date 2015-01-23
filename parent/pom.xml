@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>co.com.businessoft</groupId>
+  <artifactId>parent</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+    
+  <properties>
+  	<primefaces-version>5.1</primefaces-version>
+	<prettyfaces.version>2.0.12.Final</prettyfaces.version>
+	<primefaces_theme.version>1.0.10</primefaces_theme.version>
+	<commons_fileupload.version>1.3</commons_fileupload.version>
+	<jasig.cas.version>3.3.0</jasig.cas.version>
+	<junit.version>4.11</junit.version>
+	<omnifaces.version>2.0</omnifaces.version>
+	<jodatime.version>2.6</jodatime.version>
+
+	<one.cdifactory>1.1</one.cdifactory>
+	<one.webutils>1.5</one.webutils>
+
+	<maven.compiler.source>1.7</maven.compiler.source>
+	<maven.compiler.target>1.7</maven.compiler.target>
+
+	<maven-checkstyle-plugin.version>2.5</maven-checkstyle-plugin.version>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<checkstyle.config.location>${user.dir}/comunes/checkstyle/checkstyle.xml</checkstyle.config.location>
+	<primefacestheme.version>1.0.8</primefacestheme.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${maven-checkstyle-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>checkstyle</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <failOnViolation>false</failOnViolation>
+                    <failsOnError>false</failsOnError>
+                    <enableRulesSummary>true</enableRulesSummary>
+                    <configLocation>${checkstyle.config.location}</configLocation>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <modules>
+    	<module>comunes</module>
+    	<module>prestador</module>
+    </modules>
+</project>
